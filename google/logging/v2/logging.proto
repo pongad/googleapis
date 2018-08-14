@@ -32,9 +32,23 @@ option java_outer_classname = "LoggingProto";
 option java_package = "com.google.logging.v2";
 option php_namespace = "Google\\Cloud\\Logging\\V2";
 
+option (google.api.metadata) = {
+  product_name: "Logging"
+  product_uri: "https://cloud.google.com/logging/"
+  package_namespace: ["Stackdriver"]
+};
 
 // Service for ingesting and querying logs.
 service LoggingServiceV2 {
+  option (google.api.default_host) = "logging.googleapis.com";
+  option (google.api.oauth) = {
+    scopes: ["https://www.googleapis.com/auth/cloud-platform",
+             "https://www.googleapis.com/auth/cloud-platform.read-only",
+             "https://www.googleapis.com/auth/logging.admin",
+             "https://www.googleapis.com/auth/logging.read",
+             "https://www.googleapis.com/auth/logging.write"]
+  };
+
   // Deletes all the log entries in a log.
   // The log reappears if it receives new entries.
   // Log entries written shortly before the delete operation might not be
