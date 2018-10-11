@@ -52,8 +52,30 @@
 
 ### Data Loss Prevention
 
- - [ ] sample
- - [ ] sample
+ - [ ] `dlp_categorical_stats`
+ - [ ] `dlp_create_template`
+ - [ ] `dlp_create_trigger`
+ - [ ] `dlp_deidentify_date_shift`
+ - [ ] `dlp_deidentify_fpe`
+ - [ ] `dlp_deidentify_masking`
+ - [ ] `dlp_delete_job`
+ - [ ] `dlp_delete_template`
+ - [ ] `dlp_delete_trigger`
+ - [ ] `dlp_inspect_bigquery`
+ - [ ] `dlp_inspect_datastore`
+ - [ ] `dlp_inspect_file`
+ - [ ] `dlp_inspect_gcs`
+ - [ ] `dlp_inspect_string`
+ - [ ] `dlp_k_anonymity`
+ - [ ] `dlp_k_map`
+ - [ ] `dlp_l_diversity`
+ - [ ] `dlp_list_info_types`
+ - [ ] `dlp_list_jobs`
+ - [ ] `dlp_list_templates`
+ - [ ] `dlp_list_triggers`
+ - [ ] `dlp_numerical_stats`
+ - [ ] `dlp_redact_image`
+ - [ ] `dlp_reidentify_fpe`
 
 ----
 
