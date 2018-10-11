@@ -272,7 +272,7 @@
     - [ ] `automl_vision_export_data`
 
   - **Managing Datasets** 
-    - [ ] `automl_vision_create_dataset`
+    - [x] `automl_vision_create_dataset`
     - [ ] `automl_vision_list_datasets`
     - [ ] `automl_vision_delete_dataset`
     - [ ] `automl_vision_get_dataset`
