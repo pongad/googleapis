@@ -40,21 +40,29 @@
     - [ ] `dialogflow_list_knowledge_base`
     - [ ] `dialogflow_delete_knowledge_base`
     - [ ] `dialogflow_get_knowledge_base`
-   
+
+----
+
 ### Data Loss Prevention
 
  - [ ] sample
  - [ ] sample
- 
+
+----
+
 ### Job Discovery
 
  - [ ] sample
  - [ ] sample
 
+----
+
 ### Key Management Service
 
  - [ ] sample
  - [ ] sample
+
+----
 
 ### Natural Language
 
@@ -73,6 +81,8 @@
   - **Classifying Content**
     - [ ] `language_classify_text`
     - [ ] `language_classify_gcs`
+
+----
 
 ### Natural Language – AutoML
 
@@ -96,35 +106,49 @@
       - [ ] `automl_language_list_model_evaluations`
       - [ ] `automl_language_display_evaluation`
 
+----
+
 ### Speech-to-Text
 
  - [ ] sample
  - [ ] sample
+
+----
 
 ### Text-to-Speech
 
  - [ ] sample
  - [ ] sample
 
+----
+
 ### Translate – AutoML
 
  - [ ] sample
  - [ ] sample
+
+----
 
 ### Video Intelligence
 
  - [ ] sample
  - [ ] sample
 
+----
+
 ### Vision
 
  - [ ] sample
  - [ ] sample
 
+----
+
 ### Vision – AutoML
 
  - [ ] sample
  - [ ] sample
+
+----
 
 ### Vision – Product Search
 
