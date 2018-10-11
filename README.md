@@ -179,7 +179,7 @@
 
  - **Perfoming Speech Recognition**
    - [ ] `speech_transcribe_sync`
-   - [ ] `speech_transcribe_sync_gcs`
+   - [x] `speech_transcribe_sync_gcs`
    - [ ] `speech_transcribe_async`
    - [ ] `speech_transcribe_async_gcs`
 

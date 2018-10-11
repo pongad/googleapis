@@ -103,41 +103,41 @@ interfaces:
                   - alternative.transcript
 
   - name: LongRunningRecognize
-    samples:
-      standalone:
-      - calling_forms: ".*"
-        value_sets: speech_transcribe_async_gcs
-        region_tag: speech_transcribe_async_gcs
-    sample_value_sets:
-    - id: speech_transcribe_async_gcs
-      description: "Transcribe audio file (async LRO)"
-      parameters:
-        defaults:
-        - config.encoding=LINEAR16
-        - config.sample_rate_hertz=16000
-        - config.language_code="en-US"
-        - audio.uri="Path to audio file in GCS, e.g. gs://my-bucket/audio.wav"
-        attributes:
-        - parameter: audio.uri
-          sample_argument: true
-      on_success:
-      # array indexing not supported yet
-      #- define: alternative=$resp.results[0].alternatives[0]
-      #- define: alternative=$resp.results[0].alternatives[0]
-      #- print:
-      #  - "Transcript of first alternative: %s"
-      #  - alternative.transcript
-      - loop:
-          variable: result
-          collection: $resp.results
-          body:
-            - loop:
-                variable: alternative
-                collection: result.alternatives
-                body:
-                - print:
-                  - "Transcript: %s"
-                  - alternative.transcript
+    # samples:
+    #   standalone:
+    #   - calling_forms: ".*"
+    #     value_sets: speech_transcribe_async_gcs
+    #     region_tag: speech_transcribe_async_gcs
+    # sample_value_sets:
+    # - id: speech_transcribe_async_gcs
+    #   description: "Transcribe audio file (async LRO)"
+    #   parameters:
+    #     defaults:
+    #     - config.encoding=LINEAR16
+    #     - config.sample_rate_hertz=16000
+    #     - config.language_code="en-US"
+    #     - audio.uri="Path to audio file in GCS, e.g. gs://my-bucket/audio.wav"
+    #     attributes:
+    #     - parameter: audio.uri
+    #       sample_argument: true
+    #   on_success:
+    #   # array indexing not supported yet
+    #   #- define: alternative=$resp.results[0].alternatives[0]
+    #   #- define: alternative=$resp.results[0].alternatives[0]
+    #   #- print:
+    #   #  - "Transcript of first alternative: %s"
+    #   #  - alternative.transcript
+    #   - loop:
+    #       variable: result
+    #       collection: $resp.results
+    #       body:
+    #         - loop:
+    #             variable: alternative
+    #             collection: result.alternatives
+    #             body:
+    #             - print:
+    #               - "Transcript: %s"
+    #               - alternative.transcript
     flattening:
       groups:
       - parameters:
