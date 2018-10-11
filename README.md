@@ -202,6 +202,13 @@
 
 ### Vision
 
+ - [ ] sample
+ - [ ] sample
+
+----
+
+### Vision – AutoML
+
   - **Prediction**
     - [ ] `automl_vision_predict`
 
@@ -225,13 +232,6 @@
       - [ ] `automl_vision_list_model_evaluations`
       - [ ] `automl_vision_list_model_evaluations`
       - [ ] `automl_vision_display_evaluation`
-
-----
-
-### Vision – AutoML
-
- - [ ] sample
- - [ ] sample
 
 ----
 
