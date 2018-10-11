@@ -1,4 +1,4 @@
-🐄 ` ` **G**.a.**P**.i.**C** samples` `
+🐄 ` ` **G**.a.**P**.i.**C** samples` ` :: ` `[[ _a.k.a._ **gapic–docs–samples** ]]` `
 
 ----
 
