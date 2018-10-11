@@ -1,0 +1,176 @@
+#! /usr/bin/env ruby
+
+def usage error: nil
+puts "\n[Error]:\n#{error}\n\n" if error
+puts %{$ generate-samples
+
+Usage:
+       generate-samples ALL
+       generate-samples ALL python
+       generate-samples ALL python csharp
+       generate-samples speech
+       generate-samples speech dlp.v2
+       generate-samples dialogflow
+       generate-samples dialogflow.v1
+       generate-samples dialogflow.v1 python
+       generate-samples dialogflow.v1 python csharp
+       generate-samples speech ruby; vision go node; dlp php
+       generate-samples --help             # prints this message :)
+       generate-samples --parallel         # parallel (using defaults)
+       generate-samples --thread-count  4  # parallel generation
+       generate-samples --process-count 2  # parallel generation
+       generate-samples --tasks            # prints available tasks
+       generate-samples my_task            # defined in samplegen.yml
+       generate-samples                    # run 'default' task
+
+}
+exit
+end
+
+usage if ARGV.delete "--help"
+
+LANGUAGES        = %w[ csharp go java node php python ruby ALL ]
+VERSION_PATTERN  = /(?<major_version>v\d+)(?<patch_level>p?\d*)(?<release_level>alpha\d+|beta\d+)?/
+API_NAME_PATTERN = /(?<api_name>\w+)\.#{VERSION_PATTERN}/
+VERSION_FROM_DIR = %r{#{File::SEPARATOR}#{VERSION_PATTERN}#{File::SEPARATOR}}
+OUTPUT_DIR       = File.dirname __FILE__
+
+apis_to_generate_libraries_for = []
+languages_to_generate          = []
+
+usage error: "ALL is not currently supported"       if ARGV.join.include? "ALL"
+usage error: "; separators not currently supported" if ARGV.join.include? ";"
+
+def api_version_from_match match
+  [ match[:major_version],
+    match[:patch_level],
+    match[:release_level]
+  ].compact.join
+end
+
+while ARGV.any?
+  argument = ARGV.shift
+
+  if LANGUAGES.include? argument
+    language_name = argument
+    languages_to_generate << language_name
+    next
+  end
+
+  if argument =~ API_NAME_PATTERN
+    api_name = $~[:api_name]
+    version  = api_version_from_match $~
+    apis_to_generate_libraries_for << [api_name, version]
+    next
+  end
+
+  guessing_this_is_an_api_name = argument
+  apis_to_generate_libraries_for << [guessing_this_is_an_api_name]
+end
+
+puts "\nLibraries to Generate (#{apis_to_generate_libraries_for.size})"
+apis_to_generate_libraries_for.each {|lib| puts " - #{lib}" }
+
+puts "\nLanguages to Generate (#{languages_to_generate.size})"
+languages_to_generate.each {|lang| puts " - #{lang}" }
+
+######################################################################
+# Done with argument parsing!
+# As a result, we have these variables to work with:
+# - languages_to_generate          ["python", "node"...]
+# - apis_to_generate_libraries_for [["speech"], ["language", "v1"]...]
+######################################################################
+
+samplegen_info = nil
+begin
+  samplegen_info = `samplegen --info`
+rescue Exception => e
+  if e.instance_of?(Errno::ENOENT) && e.message == "No such file or directory - samplegen"
+    puts "./generate-samples currently shells out to the `samplegen` command"
+    puts "Download the `samplegen` script here:"
+    puts "$ curl -O https://gist.githubusercontent.com/beccasaurus/570ae7bb4fb819c87ef029bafd61f28e/raw/samplegen"
+    puts "README: https://gist.github.com/beccasaurus/570ae7bb4fb819c87ef029bafd61f28e"
+    puts "Please ensure that samplegen is added to your PATH"
+  else
+    puts "Unknown exception raised calling `samplegen`"
+    puts e
+    usage error: e.message
+  end
+end
+
+SAMPLEGEN_INFO   = samplegen_info
+SAMPLEGEN_CONFIG = SAMPLEGEN_INFO.scan(/^(?<option>\w+) = (?<value>.*)$/).to_h
+GOOGLEAPIS_PATH  = SAMPLEGEN_CONFIG["googleapis"]
+
+## Check to see if any of the libraries can't be found
+api_library_gapic_files = []
+apis_to_generate_libraries_for.each do |api_name, api_version|
+  gapic_config_or_error = `samplegen --gapic-config #{api_name} #{api_version}`
+  if $?.success?
+    if api_version.nil?
+      # if you don't pass in an explicit version, samplegen will choose the latest.
+      # we want to save samples in :api_name/:api_version/:language directories,
+      # so we need to get the detected api_version
+      api_version = api_version_from_match gapic_config_or_error.match(VERSION_FROM_DIR)
+      if api_version.nil?
+        usage error: "Could not determine API version.\n" +
+                     "Looked at path to file: #{gapic_config_or_error}\n" +
+                     "Please specify version explicitly (sorry)"
+      end
+      api_ref = apis_to_generate_libraries_for.detect {|k,v| k == api_name && v.nil? } << api_version
+    end
+    api_library_gapic_files << [api_name, api_version, gapic_config_or_error]
+  else
+    usage error: %{"#{gapic_config_or_error.strip}"}
+  end
+end
+
+puts "\nGAPIC files to generate samples from (#{api_library_gapic_files.size})"
+api_library_gapic_files.each {|path| puts " - #{path}" }
+
+######################################################################
+# Let's generate some samples! And save them in our local directory!
+######################################################################
+
+require "fileutils"
+
+puts "\nGenerating Library and Samples"
+api_library_gapic_files.each do |api_name, api_version, gapic_config_path|
+  usage error: "Could not determine version of #{api_name}, please pass version explicitly." if api_version.nil?
+  api_name_and_version  = [api_name, api_version].compact.join(" ")
+  gapic_config_filename = File.basename gapic_config_path
+  puts "   #{api_name_and_version} [#{gapic_config_filename}]"
+
+  languages_to_generate.each do |language|
+    print "   => #{language} " # puts OK or FAILED
+
+    # ok, so where do we output the samples?
+    # OUTPUT_DIR / api_name / api_version / language /
+    sample_output_dir = File.join OUTPUT_DIR, api_name, api_version, language
+    FileUtils.mkdir_p sample_output_dir
+
+    # Generate Library
+    command = %{samplegen #{api_name} #{api_version} --language #{language} --output "#{sample_output_dir}"}
+    output  = `#{command} 2>&1`
+
+    if $?.success?
+      puts "OK"
+    else
+      puts "FAILED"
+      puts "      Command:     #{command}"
+      puts "      Exit code:   #{$?.exitstatus}"
+    end
+  end
+end
+
+######################################################################
+
+# Legit zero safety checks and whatever atm – just GENERATE SOME SAMPLES, YO!
+# First: specified samples
+# Then: generate all of them!
+
+# No configuration stuffs until it's warranted
+#CONFIG_PATH      =   ENV["xxx_CONFIG"] || "xxx.yml"
+#CONFIGURATION    =   Hash.new { |hash, key| hash[key] = Hash.new &hash.default_proc }
+#CONFIGURATION.merge! YAML.load_file CONFIG_PATH if File.exists? CONFIG_PATH
+#CONFIGURATION["tasks"].each {|name, _| puts name } && exit if ARGV.delete "--tasks"
