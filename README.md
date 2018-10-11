@@ -115,6 +115,7 @@
     - [ ] `automl_language_list_models`
     - [ ] `automl_language_delete_model`
     - [ ] `automl_language_get_model`
+
     - **Model Evaluations**
       - [ ] `automl_language_list_model_evaluations`
       - [ ] `automl_language_list_model_evaluations`
@@ -182,6 +183,7 @@
     - [ ] `automl_translate_list_models`
     - [ ] `automl_translate_delete_model`
     - [ ] `automl_translate_get_model`
+
     - **Model Evaluations**
       - [ ] `automl_translate_list_model_evaluations`
       - [ ] `automl_translate_list_model_evaluations`
