@@ -77,7 +77,7 @@ Usage:
 
 ##### Natural Language
 
- - **Analyzing Sentiment**
+  - **Analyzing Sentiment**
     - [ ] `language_sentiment_text`
     - [ ] `language_sentiment_gcs`
   - **Analyzing Entities**
@@ -95,8 +95,25 @@ Usage:
 
 ##### Natural Language – AutoML
 
- - [ ] sample
- - [ ] sample
+  - **Prediction**
+    - [ ] `automl_language_predict`
+  - **Import/Export Data**
+    - [ ] `automl_language_import_data`
+    - [ ] `automl_language_export_data`
+  - **Managing Datasets** 
+    - [ ] `automl_language_create_dataset`
+    - [ ] `automl_language_list_datasets`
+    - [ ] `automl_language_delete_dataset`
+    - [ ] `automl_language_get_dataset`
+  - **Managing Models**
+    - [ ] `automl_language_create_model`
+    - [ ] `automl_language_list_models`
+    - [ ] `automl_language_delete_model`
+    - [ ] `automl_language_get_model`
+    - **Model Evaluations**
+      - [ ] `automl_language_list_model_evaluations`
+      - [ ] `automl_language_list_model_evaluations`
+      - [ ] `automl_language_display_evaluation`
 
 ##### Speech-to-Text
 
