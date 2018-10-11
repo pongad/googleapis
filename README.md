@@ -30,9 +30,9 @@
     - [ ] `dialogflow_delete_entity`
 
  - **Entity Type Management**
-    - [x] `dialogflow_create_entity_type`
-    - [x] `dialogflow_list_entity_types`
-    - [x] `dialogflow_delete_entity_type`
+    - [x] **`dialogflow_create_entity_type`**
+    - [x] **`dialogflow_list_entity_types`**
+    - [x] **`dialogflow_delete_entity_type`**
 
   - **Session Entity Type Management**
     - [ ] `dialogflow_create_session_entity_type`
@@ -68,7 +68,7 @@
  - [ ] `dlp_inspect_datastore`
  - [ ] `dlp_inspect_file`
  - [ ] `dlp_inspect_gcs`
- - [x] `dlp_inspect_string`
+ - [x] **`dlp_inspect_string`**
  - [ ] `dlp_k_anonymity`
  - [ ] `dlp_k_map`
  - [ ] `dlp_l_diversity`
@@ -105,7 +105,7 @@
    - [ ] `kms_verify_signature_ec`
 
  - **Managing Keyrings**
-   - [x] `kms_create_keyring`
+   - [x] **`kms_create_keyring`**
    - [ ] `kms_get_keyring_policy`
    - [ ] `kms_add_member_to_keyring_policy`
 
@@ -126,16 +126,16 @@
 ### Natural Language
 
   - **Analyzing Sentiment**
-    - [x] `language_sentiment_text`
-    - [x] `language_sentiment_gcs`
+    - [x] **`language_sentiment_text`**
+    - [x] **`language_sentiment_gcs`**
 
   - **Analyzing Entities**
-    - [x] `language_entities_text`
-    - [x] `language_entities_gcs`
+    - [x] **`language_entities_text`**
+    - [x] **language_entities_gcs`**
 
   - **Analyzing Syntax**
-    - [x] `language_syntax_text`
-    - [x] `language_syntax_gcs`
+    - [x] **`language_syntax_text`**
+    - [x] **`language_syntax_gcs`**
 
   - **Analyzing Entity Sentiment**
     - [ ] `language_entity_sentiment_text`
@@ -179,7 +179,7 @@
 
  - **Perfoming Speech Recognition**
    - [ ] `speech_transcribe_sync`
-   - [x] `speech_transcribe_sync_gcs`
+   - [x] **`speech_transcribe_sync_gcs`**
    - [ ] `speech_transcribe_async`
    - [ ] `speech_transcribe_async_gcs`
 
