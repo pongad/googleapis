@@ -131,8 +131,11 @@
 
 ### Video Intelligence
 
- - [ ] sample
- - [ ] sample
+ - [ ] `video_analyze_labels`
+ - [ ] `video_analyze_labels_gcs`
+ - [ ] `video_analyze_shots`
+ - [ ] `video_analyze_explicit_content`
+ - [ ] `video_speech_transcription_gcs`
 
 ----
 
