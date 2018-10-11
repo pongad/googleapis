@@ -200,8 +200,29 @@
 
 ### Vision
 
- - [ ] sample
- - [ ] sample
+  - **Prediction**
+    - [ ] `automl_vision_predict`
+
+  - **Import/Export Data**
+    - [ ] `automl_vision_import_data`
+    - [ ] `automl_vision_export_data`
+
+  - **Managing Datasets** 
+    - [ ] `automl_vision_create_dataset`
+    - [ ] `automl_vision_list_datasets`
+    - [ ] `automl_vision_delete_dataset`
+    - [ ] `automl_vision_get_dataset`
+
+  - **Managing Models**
+    - [ ] `automl_vision_create_model`
+    - [ ] `automl_vision_list_models`
+    - [ ] `automl_vision_delete_model`
+    - [ ] `automl_vision_get_model`
+
+    - **Model Evaluations**
+      - [ ] `automl_vision_list_model_evaluations`
+      - [ ] `automl_vision_list_model_evaluations`
+      - [ ] `automl_vision_display_evaluation`
 
 ----
 
