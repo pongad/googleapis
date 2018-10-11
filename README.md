@@ -70,15 +70,28 @@ Usage:
  - [ ] sample
  - [ ] sample
 
-##### Natural Language
-
- - [ ] sample
- - [ ] sample
-
 ##### Key Management Service
 
  - [ ] sample
  - [ ] sample
+
+##### Natural Language
+
+ - **Analyzing Sentiment**
+    - [ ] `dialogflow_create_entity_type`
+    - [ ] `dialogflow_list_entity_types`
+  - **Session Entity Type Management**
+    - [ ] `dialogflow_create_session_entity_type`
+    - [ ] `dialogflow_list_session_entity_types`
+  - **Document Management**
+    - [ ] `dialogflow_create_document`
+    - [ ] `dialogflow_list_document`
+  - **Document Management**
+    - [ ] `dialogflow_create_document`
+    - [ ] `dialogflow_list_document`
+  - **Document Management**
+    - [ ] `dialogflow_create_document`
+    - [ ] `dialogflow_list_document`
 
 ##### Natural Language – AutoML
 
