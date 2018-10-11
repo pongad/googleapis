@@ -196,8 +196,33 @@
 
 ### Vision – Product Search
 
- - [ ] sample
- - [ ] sample
+ - **Managing Products**
+   - [ ] `create_product`
+   - [ ] `get_product`
+   - [ ] `list_products`
+   - [ ] `delete_product`
+   - [ ] `update_product_labels`
+
+ - **Managing Product Sets**
+   - [ ] `create_product_set`
+   - [ ] `get_product_set`
+   - [ ] `list_product_sets`
+   - [ ] `delete_product_set`
+
+ - **Managing Products in Product Sets**
+   - [ ] `add_product_to_product_set`
+   - [ ] `list_products_in_product_set`
+   - [ ] `remove_product_from_product_set`
+
+ - **Managing Reference Images**
+   - [ ] `create_reference_image`
+   - [ ] `get_reference_image`
+   - [ ] `list_reference_images`
+   - [ ] `delete_reference_image`
+
+ - **Similar Products**
+   - [ ] `get_similar_products_file`
+   - [ ] `get_similar_products_uri`
 
 ----
 
