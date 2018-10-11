@@ -146,7 +146,7 @@ interfaces:
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: dlp_inspect_string
+        value_sets: [dlp_inspect_string]
         region_tag: dlp_inspect_string
     sample_value_sets:
     - id: dlp_inspect_string

@@ -477,7 +477,7 @@ interfaces:
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: dialogflow_list_entity_types
+        value_sets: [dialogflow_list_entity_types]
         region_tag: dialogflow_list_entity_types
     sample_value_sets:
     - id: dialogflow_list_entity_types
@@ -544,7 +544,7 @@ interfaces:
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: dialogflow_create_entity_type
+        value_sets: [dialogflow_create_entity_type]
         region_tag: dialogflow_create_entity_type
     sample_value_sets:
     - id: dialogflow_create_entity_type
@@ -598,7 +598,7 @@ interfaces:
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: dialogflow_delete_entity_type
+        value_sets: [dialogflow_delete_entity_type]
         region_tag: dialogflow_delete_entity_type
     sample_value_sets:
     - id: dialogflow_delete_entity_type
