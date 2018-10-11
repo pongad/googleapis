@@ -66,8 +66,35 @@
 
 ### Key Management Service
 
- - [ ] sample
- - [ ] sample
+ - **Encrypt / Decrypt**
+   - [ ] `kms_encrypt`
+   - [ ] `kms_decrypt`
+
+ - **Encrypt / Decrypt (RSA)**
+   - [ ] `kms_encrypt_rsa`
+   - [ ] `kms_decrypt_rsa`
+
+ - **Signing & Verifying**
+   - [ ] `kms_sign_asymmetric`
+   - [ ] `kms_verify_signature_rsa`
+   - [ ] `kms_verify_signature_ec`
+
+ - **Managing Keyrings**
+   - [ ] `kms_create_keyring`
+   - [ ] `kms_get_keyring_policy`
+   - [ ] `kms_add_member_to_keyring_policy`
+
+ - **Managing Cryptokeys**
+   - [ ] `kms_create_cryptokey`
+   - [ ] `kms_create_cryptokey_version`
+   - [ ] `kms_enable_cryptokey_version`
+   - [ ] `kms_disable_cryptokey_version`
+   - [ ] `kms_destroy_cryptokey_version`
+   - [ ] `kms_destroy_cryptokey_version`
+   - [ ] `kms_set_cryptokey_primary_version`
+   - [ ] `kms_create_cryptokey_with_rotation_schedule`
+   - [ ] `kms_add_member_to_cryptokey_policy`
+   - [ ] `kms_remove_member_from_cryptokey_policy`
 
 ----
 
