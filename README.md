@@ -4,6 +4,9 @@
 
 ## Samples! 🦑
 
+ - [ ] `<==`
+   - [x] means that the sample is generated in this repo _*may not actually run yet_
+
 ### Dialogflow
    
   - **Detect Intents**
