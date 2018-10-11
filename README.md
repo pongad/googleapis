@@ -159,8 +159,11 @@
 
 ### Text-to-Speech
 
- - [ ] sample
- - [ ] sample
+ - [ ] `tts_list_voices`
+ - [ ] `tts_synthesize_text`
+ - [ ] `tts_synthesize_text_file`
+ - [ ] `tts_synthesize_ssml`
+ - [ ] `tts_synthesize_ssml_file`
 
 ----
 
