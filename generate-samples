@@ -27,11 +27,12 @@ end
 
 usage if ARGV.delete("--help") || ARGV.empty?
 
-LANGUAGES        = %w[ csharp go java node php python ruby ALL ]
-VERSION_PATTERN  = /(?<major_version>v\d+)(?<patch_level>p?\d*)(?<release_level>alpha\d+|beta\d+)?/
-API_NAME_PATTERN = /(?<api_name>\w+)\.#{VERSION_PATTERN}/
-VERSION_FROM_DIR = %r{#{File::SEPARATOR}#{VERSION_PATTERN}#{File::SEPARATOR}}
-OUTPUT_DIR       = File.dirname __FILE__
+LANGUAGES         = %w[ csharp go java node php python ruby ALL ]
+DEFAULT_LANGUAGES = %w[ php python ]
+VERSION_PATTERN   = /(?<major_version>v\d+)(?<patch_level>p?\d*)(?<release_level>alpha\d+|beta\d+)?/
+API_NAME_PATTERN  = /(?<api_name>\w+)\.#{VERSION_PATTERN}/
+VERSION_FROM_DIR  = %r{#{File::SEPARATOR}#{VERSION_PATTERN}#{File::SEPARATOR}}
+OUTPUT_DIR        = File.dirname __FILE__
 
 apis_to_generate_libraries_for = []
 languages_to_generate          = []
@@ -69,6 +70,7 @@ end
 puts "\nLibraries to Generate (#{apis_to_generate_libraries_for.size})"
 apis_to_generate_libraries_for.each {|lib| puts " - #{lib}" }
 
+languages_to_generate = DEFAULT_LANGUAGES if languages_to_generate.empty?
 puts "\nLanguages to Generate (#{languages_to_generate.size})"
 languages_to_generate.each {|lang| puts " - #{lang}" }
 
