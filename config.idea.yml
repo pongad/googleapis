@@ -1,0 +1,39 @@
+defaults:
+
+  # Choose a default task
+  # $ generate-samples with no arguments will run this task
+  # If not configured, will run 'default' task if one exists
+  task: my_default_task
+
+  # Define default language(s).
+  # If languages are not provided as arguments,
+  # then these languages will be generated
+  languages: java go
+
+  # Default APIs to generate if none explicitly passed
+  apis: speech texttospeech
+
+tasks:
+
+  # Define a default task.
+  default:
+    run:
+    - generate_samples: --help
+
+  # Example of another task.
+  # This is configured to run instead of `default` above
+  my_default_task:
+    desc: Something to describe this wonderful task
+    run:
+    - bash: echo Hello
+    - generate_samples:
+      - php python speech texttospeech
+      - go csharp vision videointelligence
+
+  ml_apis:
+    desc: Generate all GCP ML APIs client library samples
+    run:
+    - generate_samples: >
+        php python
+        speech texttospeech vision videointelligence
+        language automl dialogflow
