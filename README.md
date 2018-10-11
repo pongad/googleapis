@@ -78,20 +78,20 @@ Usage:
 ##### Natural Language
 
  - **Analyzing Sentiment**
-    - [ ] `dialogflow_create_entity_type`
-    - [ ] `dialogflow_list_entity_types`
-  - **Session Entity Type Management**
-    - [ ] `dialogflow_create_session_entity_type`
-    - [ ] `dialogflow_list_session_entity_types`
-  - **Document Management**
-    - [ ] `dialogflow_create_document`
-    - [ ] `dialogflow_list_document`
-  - **Document Management**
-    - [ ] `dialogflow_create_document`
-    - [ ] `dialogflow_list_document`
-  - **Document Management**
-    - [ ] `dialogflow_create_document`
-    - [ ] `dialogflow_list_document`
+    - [ ] `language_sentiment_text`
+    - [ ] `language_sentiment_gcs`
+  - **Analyzing Entities**
+    - [ ] `language_entities_text`
+    - [ ] `language_entities_gcs`
+  - **Analyzing Syntax**
+    - [ ] `language_syntax_text`
+    - [ ] `language_syntax_gcs`
+  - **Analyzing Entity Sentiment**
+    - [ ] `language_entity_sentiment_text`
+    - [ ] `language_entity_sentiment_gcs`
+  - **Classifying Content**
+    - [ ] `language_classify_text`
+    - [ ] `language_classify_gcs`
 
 ##### Natural Language – AutoML
 
