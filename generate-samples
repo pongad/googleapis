@@ -15,9 +15,9 @@ Usage:
   generate-samples dialogflow.v1
   generate-samples dialogflow.v1 python
   generate-samples dialogflow.v1 python csharp
-  generate-samples --help      # prints this message :)
-  generate-samples --parallel  # parallel generation [TODO]
-
+  generate-samples dialogflow.v1 python -v,--verbose
+  generate-samples dialogflow.v1 python -p, --parallel
+  generate-samples --help
 }
 exit
 ### generate-samples --tasks            # prints available tasks
@@ -26,6 +26,9 @@ exit
 end
 
 usage if ARGV.delete("--help") || ARGV.empty?
+
+$verbose   = ! ARGV.delete("-v").nil?
+$verbose ||= ! ARGV.delete("--verbose").nil?
 
 LANGUAGES         = %w[ csharp go java node php python ruby ALL ]
 DEFAULT_LANGUAGES = %w[ php python ]
@@ -140,6 +143,9 @@ require "fileutils"
 
 # THREAD_POOL = []
 # BUILDER_QUEUE = Queue.new
+total_sample_count = 0
+per_language_count = {}
+LANGUAGES.each {|lang| per_language_count[lang.to_sym] = 0 }
 
 puts "\nGenerating Library and Samples"
 api_library_gapic_files.each do |api_name, api_version, gapic_config_path|
@@ -169,13 +175,28 @@ api_library_gapic_files.each do |api_name, api_version, gapic_config_path|
 
     if $?.success?
       puts "OK"
+
+      # Let's print out the # of samples generated
+      if output =~ /Wrote (?<sample_count>\d+) sample files to/
+        sample_count = $~[:sample_count].to_i
+        total_sample_count += sample_count
+        per_language_count[:php] += sample_count
+        if sample_count > 0
+          sample_names = output.lines.last(sample_count).map {|name| name.gsub(/[^\w\.]/, "") }
+          sample_names.each {|sample| puts "     - #{sample}" }
+        end
+      end
     else
       puts "FAILED"
       puts "      Command:     #{command}"
       puts "      Exit code:   #{$?.exitstatus}"
+      puts "OUTPUT\n#{output}" if $verbose
     end
   end
 end
+
+puts
+puts "Generated #{total_sample_count} samples"
 
 ######################################################################
 

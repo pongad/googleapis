@@ -68,7 +68,7 @@
  - [ ] `dlp_inspect_datastore`
  - [ ] `dlp_inspect_file`
  - [ ] `dlp_inspect_gcs`
- - [ ] `dlp_inspect_string`
+ - [x] `dlp_inspect_string`
  - [ ] `dlp_k_anonymity`
  - [ ] `dlp_k_map`
  - [ ] `dlp_l_diversity`
@@ -105,7 +105,7 @@
    - [ ] `kms_verify_signature_ec`
 
  - **Managing Keyrings**
-   - [ ] `kms_create_keyring`
+   - [x] `kms_create_keyring`
    - [ ] `kms_get_keyring_policy`
    - [ ] `kms_add_member_to_keyring_policy`
 
