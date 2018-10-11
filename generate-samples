@@ -131,9 +131,6 @@ apis_to_generate_libraries_for.each do |api_name, api_version|
   end
 end
 
-puts "\nGAPIC files to generate samples from (#{api_library_gapic_files.size})"
-api_library_gapic_files.each {|path| puts " - #{path}" }
-
 ######################################################################
 # Let's generate some samples! And save them in our local directory!
 ######################################################################
