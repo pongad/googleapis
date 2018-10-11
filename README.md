@@ -17,5 +17,72 @@ Usage:
   generate-samples dialogflow.v1 python
   generate-samples dialogflow.v1 python csharp
   generate-samples --help      # prints this message :)
-  generate-samples --parallel  # parallel generation [TODO]
+  generate-samples --parallel  # parallel generation [TODO] 🦇
 ```
+----
+
+#### Samples! 🦑
+
+ - [ ] sample
+ - [ ] sample
+
+##### Dialogflow
+
+ - [ ] sample
+ - [ ] sample
+ 
+##### Data Loss Prevention
+
+ - [ ] sample
+ - [ ] sample
+
+##### Natural Language
+
+ - [ ] sample
+ - [ ] sample
+
+##### Key Management Service
+
+ - [ ] sample
+ - [ ] sample
+
+##### Natural Language – AutoML
+
+ - [ ] sample
+ - [ ] sample
+
+##### Speech-to-Text
+
+ - [ ] sample
+ - [ ] sample
+
+##### Text-to-Speech
+
+ - [ ] sample
+ - [ ] sample
+
+##### Translate – AutoML
+
+ - [ ] sample
+ - [ ] sample
+
+##### Video Intelligence
+
+ - [ ] sample
+ - [ ] sample
+
+##### Vision
+
+ - [ ] sample
+ - [ ] sample
+
+##### Vision – AutoML
+
+ - [ ] sample
+ - [ ] sample
+
+##### Vision – Product Search
+
+ - [ ] sample
+ - [ ] sample
+
