@@ -30,9 +30,9 @@
     - [ ] `dialogflow_delete_entity`
 
  - **Entity Type Management**
-    - [ ] `dialogflow_create_entity_type`
-    - [ ] `dialogflow_list_entity_types`
-    - [ ] `dialogflow_delete_entity_type`
+    - [x] `dialogflow_create_entity_type`
+    - [x] `dialogflow_list_entity_types`
+    - [x] `dialogflow_delete_entity_type`
 
   - **Session Entity Type Management**
     - [ ] `dialogflow_create_session_entity_type`
@@ -126,16 +126,16 @@
 ### Natural Language
 
   - **Analyzing Sentiment**
-    - [ ] `language_sentiment_text`
-    - [ ] `language_sentiment_gcs`
+    - [x] `language_sentiment_text`
+    - [x] `language_sentiment_gcs`
 
   - **Analyzing Entities**
-    - [ ] `language_entities_text`
-    - [ ] `language_entities_gcs`
+    - [x] `language_entities_text`
+    - [x] `language_entities_gcs`
 
   - **Analyzing Syntax**
-    - [ ] `language_syntax_text`
-    - [ ] `language_syntax_gcs`
+    - [x] `language_syntax_text`
+    - [x] `language_syntax_gcs`
 
   - **Analyzing Entity Sentiment**
     - [ ] `language_entity_sentiment_text`
