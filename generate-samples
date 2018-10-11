@@ -154,6 +154,11 @@ api_library_gapic_files.each do |api_name, api_version, gapic_config_path|
     sample_output_dir = File.join OUTPUT_DIR, api_name, api_version, language
     FileUtils.mkdir_p sample_output_dir
 
+    # Let's also save the GAPIC config in this repo so we can TAL at its contents
+    gapic_config_output_directory = File.join OUTPUT_DIR, "gapic_configs", api_name, api_version
+    FileUtils.mkdir_p gapic_config_output_directory
+    FileUtils.cp gapic_config_path, gapic_config_output_directory
+
     # Generate Library
     command = %{samplegen #{api_name} #{api_version} --language #{language} --output "#{sample_output_dir}"}
     output  = `#{command} 2>&1`
