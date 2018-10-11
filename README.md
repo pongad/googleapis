@@ -16,12 +16,6 @@ Usage:
   generate-samples dialogflow.v1
   generate-samples dialogflow.v1 python
   generate-samples dialogflow.v1 python csharp
-  generate-samples speech ruby; vision go node; dlp php
-  generate-samples --help             # prints this message :)
-  generate-samples --parallel         # parallel (using defaults)
-  generate-samples --thread-count  4  # parallel generation
-  generate-samples --process-count 2  # parallel generation
-  generate-samples --tasks            # prints available tasks
-  generate-samples my_task            # defined in samplegen.yml
-  generate-samples                    # run 'default' task
+  generate-samples --help      # prints this message :)
+  generate-samples --parallel  # parallel generation [TODO]
 ```

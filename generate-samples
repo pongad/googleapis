@@ -5,29 +5,27 @@ puts "\n[Error]:\n#{error}\n\n" if error
 puts %{$ generate-samples
 
 Usage:
-       generate-samples ALL
-       generate-samples ALL python
-       generate-samples ALL python csharp
-       generate-samples speech
-       generate-samples speech dlp.v2
-       generate-samples dialogflow
-       generate-samples dialogflow.v1
-       generate-samples dialogflow.v1 python
-       generate-samples dialogflow.v1 python csharp
-       generate-samples speech ruby; vision go node; dlp php
-       generate-samples --help             # prints this message :)
-       generate-samples --parallel         # parallel (using defaults)
-       generate-samples --thread-count  4  # parallel generation
-       generate-samples --process-count 2  # parallel generation
-       generate-samples --tasks            # prints available tasks
-       generate-samples my_task            # defined in samplegen.yml
-       generate-samples                    # run 'default' task
+
+  generate-samples ALL
+  generate-samples ALL python
+  generate-samples ALL python csharp
+  generate-samples speech
+  generate-samples speech dlp.v2
+  generate-samples dialogflow
+  generate-samples dialogflow.v1
+  generate-samples dialogflow.v1 python
+  generate-samples dialogflow.v1 python csharp
+  generate-samples --help      # prints this message :)
+  generate-samples --parallel  # parallel generation [TODO]
 
 }
 exit
+### generate-samples --tasks            # prints available tasks
+### generate-samples my_task            # defined in samplegen.yml
+### generate-samples                    # run 'default' task
 end
 
-usage if ARGV.delete "--help"
+usage if ARGV.delete("--help") || ARGV.empty?
 
 LANGUAGES        = %w[ csharp go java node php python ruby ALL ]
 VERSION_PATTERN  = /(?<major_version>v\d+)(?<patch_level>p?\d*)(?<release_level>alpha\d+|beta\d+)?/
@@ -73,6 +71,9 @@ apis_to_generate_libraries_for.each {|lib| puts " - #{lib}" }
 
 puts "\nLanguages to Generate (#{languages_to_generate.size})"
 languages_to_generate.each {|lang| puts " - #{lang}" }
+
+usage error: "No APIs to generate specified"      if apis_to_generate_libraries_for.empty?
+usage error: "No Languages to generate specified" if languages_to_generate.empty?
 
 ######################################################################
 # Done with argument parsing!
@@ -132,7 +133,11 @@ api_library_gapic_files.each {|path| puts " - #{path}" }
 # Let's generate some samples! And save them in our local directory!
 ######################################################################
 
+require "thread"
 require "fileutils"
+
+# THREAD_POOL = []
+# BUILDER_QUEUE = Queue.new
 
 puts "\nGenerating Library and Samples"
 api_library_gapic_files.each do |api_name, api_version, gapic_config_path|
@@ -152,6 +157,8 @@ api_library_gapic_files.each do |api_name, api_version, gapic_config_path|
     # Generate Library
     command = %{samplegen #{api_name} #{api_version} --language #{language} --output "#{sample_output_dir}"}
     output  = `#{command} 2>&1`
+    # ASAP TODO add parallelization – choose # of concurrent Docker run's.
+    # instead of running it directly, we will add to queue (watched by threads)
 
     if $?.success?
       puts "OK"
