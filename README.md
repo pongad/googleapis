@@ -2,28 +2,9 @@
 
 ----
 
-##### `$ generate-samples`
+### Samples! 🦑
 
-```php
-Usage:
-
-  generate-samples ALL
-  generate-samples ALL python
-  generate-samples ALL python csharp
-  generate-samples speech
-  generate-samples speech dlp.v2
-  generate-samples dialogflow
-  generate-samples dialogflow.v1
-  generate-samples dialogflow.v1 python
-  generate-samples dialogflow.v1 python csharp
-  generate-samples --help      # prints this message :)
-  generate-samples --parallel  # parallel generation [TODO] 🦇
-```
-----
-
-#### Samples! 🦑
-
-##### Dialogflow
+#### Dialogflow
    
   - **Detect Intents**
     - [ ] `dialogflow_detect_intent_text`
@@ -60,22 +41,22 @@ Usage:
     - [ ] `dialogflow_delete_knowledge_base`
     - [ ] `dialogflow_get_knowledge_base`
    
-##### Data Loss Prevention
+#### Data Loss Prevention
 
  - [ ] sample
  - [ ] sample
  
-##### Job Discovery
+#### Job Discovery
 
  - [ ] sample
  - [ ] sample
 
-##### Key Management Service
+#### Key Management Service
 
  - [ ] sample
  - [ ] sample
 
-##### Natural Language
+#### Natural Language
 
   - **Analyzing Sentiment**
     - [ ] `language_sentiment_text`
@@ -93,7 +74,7 @@ Usage:
     - [ ] `language_classify_text`
     - [ ] `language_classify_gcs`
 
-##### Natural Language – AutoML
+#### Natural Language – AutoML
 
   - **Prediction**
     - [ ] `automl_language_predict`
@@ -115,38 +96,57 @@ Usage:
       - [ ] `automl_language_list_model_evaluations`
       - [ ] `automl_language_display_evaluation`
 
-##### Speech-to-Text
+#### Speech-to-Text
 
  - [ ] sample
  - [ ] sample
 
-##### Text-to-Speech
+#### Text-to-Speech
 
  - [ ] sample
  - [ ] sample
 
-##### Translate – AutoML
+#### Translate – AutoML
 
  - [ ] sample
  - [ ] sample
 
-##### Video Intelligence
+#### Video Intelligence
 
  - [ ] sample
  - [ ] sample
 
-##### Vision
+#### Vision
 
  - [ ] sample
  - [ ] sample
 
-##### Vision – AutoML
+#### Vision – AutoML
 
  - [ ] sample
  - [ ] sample
 
-##### Vision – Product Search
+#### Vision – Product Search
 
  - [ ] sample
  - [ ] sample
 
+----
+
+#### `$ generate-samples`
+
+```php
+Usage:
+
+  generate-samples ALL
+  generate-samples ALL python
+  generate-samples ALL python csharp
+  generate-samples speech
+  generate-samples speech dlp.v2
+  generate-samples dialogflow
+  generate-samples dialogflow.v1
+  generate-samples dialogflow.v1 python
+  generate-samples dialogflow.v1 python csharp
+  generate-samples --help      # prints this message :)
+  generate-samples --parallel  # parallel generation [TODO] 🦇
+```
