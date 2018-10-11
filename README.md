@@ -8,3 +8,7 @@
 The code samples in this repository are authored in **YAML.**  
 The code samples are then be **generated** in one of many programming languages.  
 The code samples demonstrate how to accomplish **common tasks** using Google's client libraries.
+
+----
+
+ - TOC
