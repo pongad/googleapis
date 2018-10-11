@@ -165,8 +165,26 @@
 
 ### Translate – AutoML
 
- - [ ] sample
- - [ ] sample
+  - **Prediction**
+    - [ ] `automl_translate_predict`
+
+  - **Import Data**
+    - [ ] `automl_translate_import_data`
+
+  - **Managing Datasets** 
+    - [ ] `automl_translate_create_dataset`
+    - [ ] `automl_translate_list_datasets`
+    - [ ] `automl_translate_delete_dataset`
+    - [ ] `automl_translate_get_dataset`
+
+  - **Managing Models**
+    - [ ] `automl_translate_create_model`
+    - [ ] `automl_translate_list_models`
+    - [ ] `automl_translate_delete_model`
+    - [ ] `automl_translate_get_model`
+    - **Model Evaluations**
+      - [ ] `automl_translate_list_model_evaluations`
+      - [ ] `automl_translate_list_model_evaluations`
 
 ----
 
