@@ -62,10 +62,10 @@ interfaces:
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: language_sentiment_text
+        value_sets: [language_sentiment_text]
         region_tag: language_sentiment_text
       - calling_forms: ".*"
-        value_sets: language_sentiment_gcs
+        value_sets: [language_sentiment_gcs]
         region_tag: language_sentiment_gcs
 
     sample_value_sets:
@@ -122,10 +122,10 @@ interfaces:
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: language_entities_text
+        value_sets: [language_entities_text]
         region_tag: language_entities_text
       - calling_forms: ".*"
-        value_sets: language_entities_gcs
+        value_sets: [language_entities_gcs]
         region_tag: language_entities_gcs
 
     sample_value_sets:
@@ -209,10 +209,10 @@ interfaces:
     samples:
        standalone:
        - calling_forms: ".*"
-         value_sets: language_syntax_text
+         value_sets: [language_syntax_text]
          region_tag: language_syntax_text
        - calling_forms: ".*"
-         value_sets: language_syntax_gcs
+         value_sets: [language_syntax_gcs]
          region_tag: language_syntax_gcs
 
     sample_value_sets:

@@ -69,7 +69,7 @@ interfaces:
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: speech_transcribe_sync_gcs
+        value_sets: [speech_transcribe_sync_gcs]
         region_tag: speech_transcribe_sync_gcs
     sample_value_sets:
     - id: speech_transcribe_sync_gcs

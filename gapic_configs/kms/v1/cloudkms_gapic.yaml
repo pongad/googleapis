@@ -251,11 +251,11 @@ interfaces:
 
     ###
     #
-    
+
     samples:
       standalone:
       - calling_forms: ".*"
-        value_sets: kms_create_key_ring
+        value_sets: [kms_create_key_ring]
         region_tag: kms_create_key_ring
 
     sample_value_sets:
@@ -264,6 +264,8 @@ interfaces:
       description: "Create a KeyRing"
       parameters:
       ####   defaults:
+        defaults:
+          - key_ring_id="the id"
         attributes:
         - parameter: key_ring_id
           sample_argument: true
