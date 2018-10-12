@@ -20,6 +20,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log"
 
 	language "cloud.google.com/go/language/apiv1"
 	languagepb "google.golang.org/genproto/googleapis/cloud/language/v1"
@@ -61,5 +62,7 @@ func sampleAnalyzeSyntax(arg0 string) error {
 func main() {
 	arg0 := flag.String("arg0", "Path to text file, e.g. gs://my-bucket/textfile", "")
 	flag.Parse()
-	sampleAnalyzeSyntax(*arg0)
+	if err := sampleAnalyzeSyntax(*arg0); err != nil {
+		log.Fatal(err)
+	}
 }

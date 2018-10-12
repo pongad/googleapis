@@ -20,6 +20,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log"
 
 	language "cloud.google.com/go/language/apiv1"
 	languagepb "google.golang.org/genproto/googleapis/cloud/language/v1"
@@ -59,5 +60,7 @@ func sampleAnalyzeSentiment(arg0 string) error {
 func main() {
 	arg0 := flag.String("arg0", "Your text to analyze, e.g. Hello, world!", "")
 	flag.Parse()
-	sampleAnalyzeSentiment(*arg0)
+	if err := sampleAnalyzeSentiment(*arg0); err != nil {
+		log.Fatal(err)
+	}
 }

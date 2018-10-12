@@ -39,13 +39,11 @@ fi
 #   -o dlp/v2/go \
 #   -desc <(protoc -o /dev/stdout --include_imports -I "$COMMON_PROTO" -I "$GOOGLEAPIS" "$GOOGLEAPIS"/google/privacy/dlp/v2/*.proto)
 
-# Bug: nested message types don't work
-#
-# gen-go-sample \
-#   -clientpkg 'cloud.google.com/go/kms/apiv1;kms' \
-#   -gapic gapic_configs/kms/v1/cloudkms_gapic.yaml \
-#   -o kms/v1/go \
-#   -desc <(protoc -o /dev/stdout --include_imports -I "$COMMON_PROTO" -I "$GOOGLEAPIS" "$GOOGLEAPIS"/google/cloud/kms/v1/*.proto)
+gen-go-sample \
+  -clientpkg 'cloud.google.com/go/kms/apiv1;kms' \
+  -gapic gapic_configs/kms/v1/cloudkms_gapic.yaml \
+  -o kms/v1/go \
+  -desc <(protoc -o /dev/stdout --include_imports -I "$COMMON_PROTO" -I "$GOOGLEAPIS" "$GOOGLEAPIS"/google/cloud/kms/v1/*.proto)
 
 gen-go-sample \
   -clientpkg 'cloud.google.com/go/language/apiv1;language' \

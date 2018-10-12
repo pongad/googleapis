@@ -20,6 +20,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log"
 
 	speech "cloud.google.com/go/speech/apiv1"
 	speechpb "google.golang.org/genproto/googleapis/cloud/speech/v1"
@@ -65,5 +66,7 @@ func sampleRecognize(arg0 string) error {
 func main() {
 	arg0 := flag.String("arg0", "Path to audio file in GCS, e.g. gs://my-bucket/audio.wav", "")
 	flag.Parse()
-	sampleRecognize(*arg0)
+	if err := sampleRecognize(*arg0); err != nil {
+		log.Fatal(err)
+	}
 }

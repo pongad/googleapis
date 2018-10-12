@@ -22,47 +22,38 @@ import (
 	"fmt"
 	"log"
 
-	language "cloud.google.com/go/language/apiv1"
-	languagepb "google.golang.org/genproto/googleapis/cloud/language/v1"
+	kms "cloud.google.com/go/kms/apiv1"
+	kmspb "google.golang.org/genproto/googleapis/cloud/kms/v1"
 )
 
-// [START language_syntax_text]
+// [START kms_create_key_ring]
 
-func sampleAnalyzeSyntax(arg0 string) error {
+func sampleCreateKeyRing(arg0 string) error {
 	ctx := context.Background()
-	c, err := language.NewClient(ctx)
+	c, err := kms.NewKeyManagementClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	// arg0 := "Your text to analyze, e.g. Hello, world!"
-	req := &languagepb.AnalyzeSyntaxRequest{
-		Document: &languagepb.Document{
-			Type: languagepb.Document_PLAIN_TEXT,
-			Source: &languagepb.Document_Content{
-				Content: arg0,
-			},
-		},
+	// arg0 := "the id"
+	req := &kmspb.CreateKeyRingRequest{
+		KeyRingId: arg0,
 	}
-	resp, err := c.AnalyzeSyntax(ctx, req)
+	resp, err := c.CreateKeyRing(ctx, req)
 	if err != nil {
 		return err
 	}
 
-	tokens := resp.GetTokens()
-	for _, token := range tokens {
-		fmt.Printf("Part of speech: %v\n", token.GetPartOfSpeech().GetTag())
-		fmt.Printf("Text:\n", token.GetText())
-	}
+	fmt.Printf("Name: %v\n", resp.GetName())
 	return nil
 }
 
-// [END language_syntax_text]
+// [END kms_create_key_ring]
 
 func main() {
-	arg0 := flag.String("arg0", "Your text to analyze, e.g. Hello, world!", "")
+	arg0 := flag.String("arg0", "the id", "")
 	flag.Parse()
-	if err := sampleAnalyzeSyntax(*arg0); err != nil {
+	if err := sampleCreateKeyRing(*arg0); err != nil {
 		log.Fatal(err)
 	}
 }
