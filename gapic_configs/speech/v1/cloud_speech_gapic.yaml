@@ -82,7 +82,7 @@ interfaces:
         - audio.uri="Path to audio file in GCS, e.g. gs://my-bucket/audio.wav"
         attributes:
         - parameter: audio.uri
-          sample_argument: true
+          sample_argument_name: uri
       on_success:
       # array indexing not supported yet
       #- define: alternative=$resp.results[0].alternatives[0]
@@ -119,7 +119,7 @@ interfaces:
     #     - audio.uri="Path to audio file in GCS, e.g. gs://my-bucket/audio.wav"
     #     attributes:
     #     - parameter: audio.uri
-    #       sample_argument: true
+    #       sample_argument_name: uri
     #   on_success:
     #   # array indexing not supported yet
     #   #- define: alternative=$resp.results[0].alternatives[0]

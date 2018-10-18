@@ -28,19 +28,19 @@ import (
 
 // [START language_sentiment_text]
 
-func sampleAnalyzeSentiment(arg0 string) error {
+func sampleAnalyzeSentiment(content string) error {
 	ctx := context.Background()
 	c, err := language.NewClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	// arg0 := "Your text to analyze, e.g. Hello, world!"
+	// content := "Your text to analyze, e.g. Hello, world!"
 	req := &languagepb.AnalyzeSentimentRequest{
 		Document: &languagepb.Document{
 			Type: languagepb.Document_PLAIN_TEXT,
 			Source: &languagepb.Document_Content{
-				Content: arg0,
+				Content: content,
 			},
 		},
 	}
@@ -58,9 +58,9 @@ func sampleAnalyzeSentiment(arg0 string) error {
 // [END language_sentiment_text]
 
 func main() {
-	arg0 := flag.String("arg0", "Your text to analyze, e.g. Hello, world!", "")
+	content := flag.String("content", "Your text to analyze, e.g. Hello, world!", "")
 	flag.Parse()
-	if err := sampleAnalyzeSentiment(*arg0); err != nil {
+	if err := sampleAnalyzeSentiment(*content); err != nil {
 		log.Fatal(err)
 	}
 }

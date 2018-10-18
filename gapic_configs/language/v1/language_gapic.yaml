@@ -78,7 +78,7 @@ interfaces:
         - document.content="Your text to analyze, e.g. Hello, world!"
         attributes:
         - parameter: document.content
-          sample_argument: true
+          sample_argument_name: content
       on_success:
       - define: sentiment=$resp.document_sentiment
       - print:
@@ -96,7 +96,7 @@ interfaces:
         - document.gcs_content_uri="Path to text file, e.g. gs://my-bucket/textfile"
         attributes:
         - parameter: document.gcs_content_uri # can this be renamed?
-          sample_argument: true
+          sample_argument_name: uri
       on_success:
       - define: sentiment=$resp.document_sentiment
       - print:
@@ -138,7 +138,7 @@ interfaces:
         - document.content="Your text to analyze, e.g. Hello, world!"
         attributes:
         - parameter: document.content
-          sample_argument: true
+          sample_argument_name: content
       on_success:
       - define: entities=$resp.entities
       - loop:
@@ -163,7 +163,7 @@ interfaces:
         - document.gcs_content_uri="Path to text file, e.g. gs://my-bucket/textfile"
         attributes:
         - parameter: document.gcs_content_uri # can this be renamed?
-          sample_argument: true
+          sample_argument_name: uri
       on_success:
       - define: entities=$resp.entities
       - loop:
@@ -224,7 +224,7 @@ interfaces:
         - document.content="Your text to analyze, e.g. Hello, world!"
         attributes:
         - parameter: document.content
-          sample_argument: true
+          sample_argument_name: content
       on_success:
       - define: tokens=$resp.tokens
       - loop:
@@ -245,7 +245,7 @@ interfaces:
         - document.gcs_content_uri="Path to text file, e.g. gs://my-bucket/textfile"
         attributes:
         - parameter: document.gcs_content_uri # can this be renamed?
-          sample_argument: true
+          sample_argument_name: uri
       on_success:
       - define: tokens=$resp.tokens
       - loop:

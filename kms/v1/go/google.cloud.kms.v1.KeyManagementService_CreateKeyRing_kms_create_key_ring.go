@@ -28,16 +28,16 @@ import (
 
 // [START kms_create_key_ring]
 
-func sampleCreateKeyRing(arg0 string) error {
+func sampleCreateKeyRing(id string) error {
 	ctx := context.Background()
 	c, err := kms.NewKeyManagementClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	// arg0 := "the id"
+	// id := "the id"
 	req := &kmspb.CreateKeyRingRequest{
-		KeyRingId: arg0,
+		KeyRingId: id,
 	}
 	resp, err := c.CreateKeyRing(ctx, req)
 	if err != nil {
@@ -51,9 +51,9 @@ func sampleCreateKeyRing(arg0 string) error {
 // [END kms_create_key_ring]
 
 func main() {
-	arg0 := flag.String("arg0", "the id", "")
+	id := flag.String("id", "the id", "")
 	flag.Parse()
-	if err := sampleCreateKeyRing(*arg0); err != nil {
+	if err := sampleCreateKeyRing(*id); err != nil {
 		log.Fatal(err)
 	}
 }

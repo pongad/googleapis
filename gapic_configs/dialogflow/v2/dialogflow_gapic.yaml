@@ -610,7 +610,7 @@ interfaces:
             # entity_type_id
             #attributes:
             #- parameter: entity_type.name
-            #sample_argument: true
+            #sample_argument_name: name
       on_success:
       - print:
         - "Deleted entity type"

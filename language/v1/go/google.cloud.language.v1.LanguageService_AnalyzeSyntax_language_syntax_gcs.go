@@ -28,19 +28,19 @@ import (
 
 // [START language_syntax_gcs]
 
-func sampleAnalyzeSyntax(arg0 string) error {
+func sampleAnalyzeSyntax(uri string) error {
 	ctx := context.Background()
 	c, err := language.NewClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	// arg0 := "Path to text file, e.g. gs://my-bucket/textfile"
+	// uri := "Path to text file, e.g. gs://my-bucket/textfile"
 	req := &languagepb.AnalyzeSyntaxRequest{
 		Document: &languagepb.Document{
 			Type: languagepb.Document_PLAIN_TEXT,
 			Source: &languagepb.Document_GcsContentUri{
-				GcsContentUri: arg0,
+				GcsContentUri: uri,
 			},
 		},
 	}
@@ -60,9 +60,9 @@ func sampleAnalyzeSyntax(arg0 string) error {
 // [END language_syntax_gcs]
 
 func main() {
-	arg0 := flag.String("arg0", "Path to text file, e.g. gs://my-bucket/textfile", "")
+	uri := flag.String("uri", "Path to text file, e.g. gs://my-bucket/textfile", "")
 	flag.Parse()
-	if err := sampleAnalyzeSyntax(*arg0); err != nil {
+	if err := sampleAnalyzeSyntax(*uri); err != nil {
 		log.Fatal(err)
 	}
 }

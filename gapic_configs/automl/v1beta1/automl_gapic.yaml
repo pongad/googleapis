@@ -246,7 +246,7 @@ interfaces:
         - parent="projects/{project_id}/locations/{location_id}"
         attributes:
         - parameter: dataset.display_name
-          sample_argument: true
+          sample_argument_name: name
       on_success:
       - define: dataset=$resp
       - print:
