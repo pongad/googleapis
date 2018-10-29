@@ -154,15 +154,15 @@ interfaces:
       parameters:
         defaults:
         - item.value="My name is Gary and my email is gary@example.com"
-        - inspect_config.info_types[0].name=PHONE_NUMBER
-        - inspect_config.info_types[1].name=EMAIL_ADDRESS
-        - inspect_config.info_types[2].name=CREDIT_CARD_NUMBER
+        - inspect_config.info_types[0].name="PHONE_NUMBER"
+        - inspect_config.info_types[1].name="EMAIL_ADDRESS"
+        - inspect_config.info_types[2].name="CREDIT_CARD_NUMBER"
         - inspect_config.min_likelihood=LIKELIHOOD_UNSPECIFIED
         - inspect_config.include_quote=true
         - inspect_config.limits.max_findings_per_request=0
         attributes:
         - parameter: item.value
-          sample_argument: true
+          sample_argument_name: value
       on_success:
       - define: findings=$resp.result.findings
       - print:

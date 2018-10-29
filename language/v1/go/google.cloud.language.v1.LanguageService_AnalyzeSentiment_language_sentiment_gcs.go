@@ -28,19 +28,19 @@ import (
 
 // [START language_sentiment_gcs]
 
-func sampleAnalyzeSentiment(arg0 string) error {
+func sampleAnalyzeSentiment(uri string) error {
 	ctx := context.Background()
 	c, err := language.NewClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	// arg0 := "Path to text file, e.g. gs://my-bucket/textfile"
+	// uri := "Path to text file, e.g. gs://my-bucket/textfile"
 	req := &languagepb.AnalyzeSentimentRequest{
 		Document: &languagepb.Document{
 			Type: languagepb.Document_PLAIN_TEXT,
 			Source: &languagepb.Document_GcsContentUri{
-				GcsContentUri: arg0,
+				GcsContentUri: uri,
 			},
 		},
 	}
@@ -58,9 +58,9 @@ func sampleAnalyzeSentiment(arg0 string) error {
 // [END language_sentiment_gcs]
 
 func main() {
-	arg0 := flag.String("arg0", "Path to text file, e.g. gs://my-bucket/textfile", "")
+	uri := flag.String("uri", "Path to text file, e.g. gs://my-bucket/textfile", "")
 	flag.Parse()
-	if err := sampleAnalyzeSentiment(*arg0); err != nil {
+	if err := sampleAnalyzeSentiment(*uri); err != nil {
 		log.Fatal(err)
 	}
 }

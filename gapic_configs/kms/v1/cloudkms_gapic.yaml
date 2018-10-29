@@ -268,7 +268,7 @@ interfaces:
           - key_ring_id="the id"
         attributes:
         - parameter: key_ring_id
-          sample_argument: true
+          sample_argument_name: id
       on_success:
       - print:
         - "Name: %s"

@@ -28,19 +28,19 @@ import (
 
 // [START language_syntax_text]
 
-func sampleAnalyzeSyntax(arg0 string) error {
+func sampleAnalyzeSyntax(content string) error {
 	ctx := context.Background()
 	c, err := language.NewClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	// arg0 := "Your text to analyze, e.g. Hello, world!"
+	// content := "Your text to analyze, e.g. Hello, world!"
 	req := &languagepb.AnalyzeSyntaxRequest{
 		Document: &languagepb.Document{
 			Type: languagepb.Document_PLAIN_TEXT,
 			Source: &languagepb.Document_Content{
-				Content: arg0,
+				Content: content,
 			},
 		},
 	}
@@ -60,9 +60,9 @@ func sampleAnalyzeSyntax(arg0 string) error {
 // [END language_syntax_text]
 
 func main() {
-	arg0 := flag.String("arg0", "Your text to analyze, e.g. Hello, world!", "")
+	content := flag.String("content", "Your text to analyze, e.g. Hello, world!", "")
 	flag.Parse()
-	if err := sampleAnalyzeSyntax(*arg0); err != nil {
+	if err := sampleAnalyzeSyntax(*content); err != nil {
 		log.Fatal(err)
 	}
 }

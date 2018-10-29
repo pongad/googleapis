@@ -28,14 +28,14 @@ import (
 
 // [START speech_transcribe_sync_gcs]
 
-func sampleRecognize(arg0 string) error {
+func sampleRecognize(uri string) error {
 	ctx := context.Background()
 	c, err := speech.NewClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	// arg0 := "Path to audio file in GCS, e.g. gs://my-bucket/audio.wav"
+	// uri := "Path to audio file in GCS, e.g. gs://my-bucket/audio.wav"
 	req := &speechpb.RecognizeRequest{
 		Config: &speechpb.RecognitionConfig{
 			Encoding:        speechpb.RecognitionConfig_LINEAR16,
@@ -44,7 +44,7 @@ func sampleRecognize(arg0 string) error {
 		},
 		Audio: &speechpb.RecognitionAudio{
 			AudioSource: &speechpb.RecognitionAudio_Uri{
-				Uri: arg0,
+				Uri: uri,
 			},
 		},
 	}
@@ -64,9 +64,9 @@ func sampleRecognize(arg0 string) error {
 // [END speech_transcribe_sync_gcs]
 
 func main() {
-	arg0 := flag.String("arg0", "Path to audio file in GCS, e.g. gs://my-bucket/audio.wav", "")
+	uri := flag.String("uri", "Path to audio file in GCS, e.g. gs://my-bucket/audio.wav", "")
 	flag.Parse()
-	if err := sampleRecognize(*arg0); err != nil {
+	if err := sampleRecognize(*uri); err != nil {
 		log.Fatal(err)
 	}
 }
